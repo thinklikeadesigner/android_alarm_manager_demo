@@ -1,9 +1,3 @@
-// Copyright 2017 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-// ignore_for_file: public_member_api_docs
-
 import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
@@ -40,12 +34,6 @@ Future<void> main() async {
   }
   runApp(AlarmManagerExampleApp());
 }
-// hello example my bname is who
-//my name is what
-//
-//save
-// myself
-//who
 
 /// Example app for Espresso plugin.
 class AlarmManagerExampleApp extends StatelessWidget {
@@ -91,7 +79,7 @@ class _AlarmHomePageState extends State<_AlarmHomePage> {
     });
   }
 
-  // The background j
+  // The background
   static SendPort uiSendPort;
 
   // The callback for our alarm
@@ -144,12 +132,13 @@ class _AlarmHomePageState extends State<_AlarmHomePage> {
               key: ValueKey('RegisterOneShotAlarm'),
               onPressed: () async {
                 await AndroidAlarmManager.periodic(
-                  const Duration(hours: 24),
+                  const Duration(seconds: 2),
                   // Ensure we have a unique alarm ID.
-                  Random().nextInt(pow(2, 31)),
+                  37,
                   callback,
                   exact: true,
                   wakeup: true,
+                  startAt: DateTime.now(),
                 );
               },
             ),
